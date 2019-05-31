@@ -1,9 +1,21 @@
 # Basic setup
 
-## Source of Instructions
-https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334
+## Connection to Firebase
+```firebase login```
+```firebase init```
+Deploy with
+```firebase deploy```
 
-## Commands executed
+For more info:
+https://firebase.google.com/docs/web/setup
+
+
+## Installtion
+
+```npm install```
+
+or follow these steps
+
 * Create package.json
 ```npm init -y```
 * Install Express server
@@ -34,3 +46,7 @@ https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-pr
 * Configure EsLint
 ```./node_modules/.bin/eslint --init```
 * Go to VSCode settings (CMD + ,) and turn on 'auto-fix on save'
+
+
+## Inspiration of some parts of this setup
+https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334

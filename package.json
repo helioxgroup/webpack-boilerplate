@@ -21,9 +21,9 @@
     "author": "Ralph Spandl - ralph@r42.ca",
     "license": "ISC",
     "dependencies": {
-        "express": "^4.17.0",
         "extract-css": "^1.2.2",
-        "extract-text-webpack-plugin": "^3.0.2"
+        "extract-text-webpack-plugin": "^3.0.2",
+        "firebase": "^6.1.0"
     },
     "devDependencies": {
         "@babel/core": "^7.4.5",

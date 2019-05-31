@@ -1,6 +1,7 @@
+/* eslint-disable */
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -35,7 +36,7 @@ function walkDir(rootDir) {
                     walk(subDirectory, file);
                 }
             } else if (parent) {
-                // Parent exists, join it with file to create the path
+                // Parent exists, join it with file to create the pat¨h
                 const fileWithParent = path.join(parent, file);
                 paths.push(fileWithParent);
             } else {

@@ -1,6 +1,8 @@
 /* eslint-disable */
+require('webpack');
 const path = require('path');
-const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -84,9 +86,7 @@ module.exports = {
     target: 'web',
     devtool: 'inline-source-map',
     devServer: {
-        // contentBase: "./dist",
-        contentBase: path.resolve(__dirname, './src/views'),
-        // contentBase: [path.join(__dirname, 'public'), path.join(__dirname, 'assets')]
+        contentBase: path.resolve(__dirname, './src'),
         watchContentBase: true,
         compress: true,
         port: 8080,
@@ -112,8 +112,6 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                // Loads the javacript into html template provided.
-                // Entry point is set below in HtmlWebPackPlugin in Plugins
                 test: /\.html$/,
                 use: [
                     {
@@ -122,23 +120,21 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(styl|stylus)$/,
+                test: /\.scss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: {
-                            sourceMap: true,
-                            modules: true,
-                            localIdentName: '[local]___[hash:base64:5]',
-                        },
+                            sourceMap: true
+                        }
                     },
                     {
-                        loader: 'stylus-loader', // compiles Stylus to CSS
-                    },
-                ],
+                        loader: "sass-loader" // compiles SASS to CSS
+                    }
+                ]
             },
             {
                 test: /\.pug$/,
@@ -167,6 +163,10 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
+        new CopyPlugin([
+            { from: 'src/assets', to: 'assets' },
+        ]),
         new MiniCssExtractPlugin({
             filename: './assets/[name].css',
             chunkFilename: '[id].css',

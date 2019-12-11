@@ -126,23 +126,21 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
-                test: /\.(styl|stylus)$/,
+                test: /\.scss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: {
-                            sourceMap: true,
-                            modules: true,
-                            localIdentName: '[local]___[hash:base64:5]',
-                        },
+                            sourceMap: true
+                        }
                     },
                     {
-                        loader: 'stylus-loader', // compiles Stylus to CSS
-                    },
-                ],
+                        loader: "sass-loader" // compiles SASS to CSS
+                    }
+                ]
             },
             {
                 test: /\.pug$/,
